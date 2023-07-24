@@ -1,0 +1,30 @@
+.Form {
+    max-width: 1000px;
+    min-height: 60px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Form input{
+    width: 210px;
+    height: 40px;
+    padding-left: 15px;
+    font-size: 20px;
+    margin-right: 20px;
+    border-radius: 5px;
+    border: solid 1px white;
+}
+
+input::placeholder{
+    font-size: 20px;
+}
+.Form button{
+    width: 150px;
+    height: 40px;
+    font-size: 20px;
+    background-color: #7CB457;
+    border:solid 1px #7CB457;
+    border-radius: 5px;
+    color: white;
+}

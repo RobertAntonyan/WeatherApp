@@ -1,0 +1,52 @@
+.info {
+    max-width: 1000px;
+    min-height: 80px;
+    margin: 0 auto;
+    /* background: rgb(2, 0, 34); */
+    /* background: linear-gradient(90deg, rgb(102, 173, 97) 0%, rgb(140, 178, 252) 34%, rgb(0, 255, 242) 100%); */
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info h2,
+p {
+    text-align: center;
+    color: white;
+}
+
+
+@media screen and (max-width: 768px) {
+    .info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100px;
+        background-color: rgba(17, 166, 196, 0.5);
+    }
+
+    .info p {
+        font-size: 18px;
+    }
+
+    .info .data {
+        color: white;
+    }
+
+}
+
+@media screen and (max-width: 450px) {
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    input {
+        margin-bottom: 20px;
+    }
+
+}
