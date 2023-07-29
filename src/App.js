@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Form from './components/Form/Form';
 import Info from './components/Info/Info';
 import Wheather from './components/Wheather/Wheather';
 import conditions from './condition.json'
-
+import axios from 'axios';
 
 
 function App() {
@@ -28,17 +28,27 @@ function App() {
     night: undefined,
     error: undefined,
   })
- 
-  const gettingWheather = async (event) => {
-    event.preventDefault();
-    const city = event.target.elements.city.value.trim();
-    if (city) {
-      const api_url = await fetch(`http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}`)
-      const data = await api_url.json();
+ const [data, setData] = useState([])
+ const city = undefined
+ useEffect(() => {
+   axios.get(`http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=Yerevan`)
+   .then((response) => {
+   
+    setData(response.data)
+    })
+   
+  },[])
+  // console.log(data);
+ const gettingWheather = async (event) => {
+   event.preventDefault();
+   const city = event.target.elements.city.value.trim();
+   if (city) {
+      // const api_url = await fetch(`https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}`)
+       // const data = await api_url.json();
       const itemInfo = conditions.find(el => el.code === data.current.condition.code)
       const iconCode = data.current.condition.icon.slice(-7,-4)
       const date = data.location.localtime.slice(0,-5)
-      // console.log(data.location.localtime.slice(-6));
+      //  console.log(api_url);
       setWheatherData({
         temp_c: Math.round(data.current.temp_c),
         city: data.location.name,
